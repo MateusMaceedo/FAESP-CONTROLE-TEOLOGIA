@@ -6,4 +6,12 @@ Sistema para controle das materias e conteudos de teologia, da Faesp Extensão P
 
 #### Materias cadastradas do Medio em Teologia
 
+#### Tecnologias utilizadas
+- Golang version ***gol1.22.1 windows/amd64***
+- DynamoDB AWS
+- SQS Queue AWS
+- API Gateway
+- IDE VSCode
+
+#### Arquitetura de solução
 
