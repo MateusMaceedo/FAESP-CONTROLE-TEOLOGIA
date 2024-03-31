@@ -37,10 +37,11 @@ type Person struct {
 	Notas      map[string]float64
 }
 
+// Premissas: 1 Cadastro de forma sincrona
 var persons = []Person{}
 
 func putPerson(w http.ResponseWriter, r *http.Request) {
-	// Ainda em testes
+	// Ainda em testes de aceitação
 	params := mux.Vars(r)
 	nome := params["name"]
 
@@ -72,7 +73,6 @@ func putPerson(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// Se não encontrou a pessoa, cria uma nova
 	persons = append(persons, updatedPerson)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)
