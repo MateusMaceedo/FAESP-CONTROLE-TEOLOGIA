@@ -3,8 +3,34 @@
 Sistema para controle das materias e conteudos de teologia, da Faesp Extensão Pinheiros. Será possivel realizar o cadastro de novos alunos, alterar os dados, e adicionar materias cursadas pelos alunos, para assim mantermos um controle total, das materias por aluno.
 
 #### Materias cadastradas do Basico em Teologia
+- Introdução a Bibliologia;
+- Panorama do A. Testamento I;
+- Panorama do A. Testamento II;
+- Homiletica;
+- Doutrina de Deus (Teontologia);
+- Cristologia;
+- Pneumatologia;
+- Apologética (R. Comparados);
+- Hermenêutica;
+- Panorama do N. Testamento I;
+- Panorama do N. Testamento II;
+- Eclesiologia;
+- Missiologia;
+- Antropologia e Hamartiologia;
+- Soteriologia;
+- Escatologia;
 
 #### Materias cadastradas do Medio em Teologia
+- Geografia e Arqueologia Biblica;
+- Angelologia;
+- Educação Cristã;
+- Teologia do Ministério;
+- Principios de Liderança;
+- Ética Cristão;
+- Hístoria de Israel;
+- Introdução a Teologia;
+- História da Igreja;
+- História do Pentecostalismo;
 
 #### Tecnologias utilizadas
 - Golang version ***gol1.22.1 windows/amd64***
