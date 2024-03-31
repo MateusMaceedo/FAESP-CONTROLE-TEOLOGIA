@@ -18,6 +18,7 @@ func main() {
 	rotas.HandleFunc("/persons/{name}", getByName).Methods("GET")
 	rotas.HandleFunc("/persons/{name}", deleteByName).Methods("DELETE")
 	rotas.HandleFunc("/persons/{name}", updatePerson).Methods("PATCH")
+	rotas.HandleFunc("/persons/{name}", putPerson).Methods("PUT")
 	var port = ":8090"
 	fmt.Println("Server running in port:", port)
 	log.Fatal(http.ListenAndServe(port, rotas))
@@ -37,6 +38,46 @@ type Person struct {
 }
 
 var persons = []Person{}
+
+func putPerson(w http.ResponseWriter, r *http.Request) {
+	// Ainda em testes
+	params := mux.Vars(r)
+	nome := params["name"]
+
+	var updatedPerson Person
+
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
+	if err := r.Body.Close(); err != nil {
+		panic(err)
+	}
+	if err := json.Unmarshal(body, &updatedPerson); err != nil {
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(http.StatusBadRequest)
+		if err := json.NewEncoder(w).Encode(err); err != nil {
+			panic(err)
+		}
+		return
+	}
+
+	for i, p := range persons {
+		if p.Nome == nome {
+			persons[i] = updatedPerson
+			w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+			w.WriteHeader(http.StatusOK)
+			json.NewEncoder(w).Encode(updatedPerson)
+			return
+		}
+	}
+
+	// Se não encontrou a pessoa, cria uma nova
+	persons = append(persons, updatedPerson)
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(updatedPerson)
+}
 
 func updatePerson(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
