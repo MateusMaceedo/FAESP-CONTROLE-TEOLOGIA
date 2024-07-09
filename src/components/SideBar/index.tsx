@@ -21,7 +21,7 @@ const classes: IClass[] = [
     date: new Date(),
     isPublished: true,
     type: "AULA PRÁTICA",
-    title: "Aula 01 - Titulo aula ignite labs",
+    title: "Aula 01 - Introdução a teologia",
     slug: "aula01",
   },
   {
@@ -29,7 +29,7 @@ const classes: IClass[] = [
     date: new Date(),
     isPublished: true,
     type: "LIVE",
-    title: "Aula 02 - Titulo aula ignite labs",
+    title: "Aula 02 - Teologia Sistemática",
     slug: "aula02",
   },
   {
@@ -37,7 +37,7 @@ const classes: IClass[] = [
     date: new Date(),
     isPublished: false,
     type: "AULA PRÁTICA",
-    title: "Aula 03 - Titulo aula ignite labs",
+    title: "Aula 03 - História da Teologia",
     slug: "aula03",
   },
   {
@@ -45,23 +45,31 @@ const classes: IClass[] = [
     date: new Date(),
     isPublished: false,
     type: "AULA PRÁTICA",
-    title: "Aula 03 - Titulo aula ignite labs",
-    slug: "aula03",
+    title: "Aula 04 - Bíblia e Hermenêutica",
+    slug: "aula04",
   },
   {
     id: 5,
     date: new Date(),
     isPublished: false,
     type: "AULA PRÁTICA",
-    title: "Aula 03 - Titulo aula ignite labs",
-    slug: "aula03",
+    title: "Aula 05 - Teologia Moral e Ética",
+    slug: "aula05",
   },
   {
     id: 6,
     date: new Date(),
     isPublished: false,
     type: "AULA PRÁTICA",
-    title: "Aula 03 - Titulo aula ignite labs",
+    title: "Aula 06 - Teologia Pastoral",
+    slug: "aula06",
+  },
+  {
+    id: 6,
+    date: new Date(),
+    isPublished: false,
+    type: "AULA PRÁTICA",
+    title: "Aula 04 - Teologia Pastoral",
     slug: "aula03",
   },
 ];
@@ -91,7 +99,7 @@ export const SideBar = () => {
       </Box>
 
       {/* Div principal que ajusta a saída da tela quando o menu é aberto */}
-      <Box minH="100vh" px={{ base: "4", md: "0" }}>
+      <Box>
         {/* Drawer para dispositivos móveis */}
         <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
           <DrawerOverlay />
@@ -99,7 +107,7 @@ export const SideBar = () => {
             <DrawerCloseButton color="white" />
             <DrawerHeader>Cronograma de Aulas</DrawerHeader>
             <DrawerBody>
-              <VStack w="full" spacing="4" align="flex-start">
+              <VStack w="full" spacing="8">
                 {classes?.map((classProps) => (
                   <CardClassContainer key={classProps.id} classProps={classProps} />
                 ))}
@@ -114,7 +122,7 @@ export const SideBar = () => {
             <Text fontWeight="bold" fontSize="lg">
               Cronograma de Aulas
             </Text>
-            <VStack w="full" spacing="4" align="flex-start">
+            <VStack w="full" spacing="8">
               {classes?.map((classProps) => (
                 <CardClassContainer key={classProps.id} classProps={classProps} />
               ))}

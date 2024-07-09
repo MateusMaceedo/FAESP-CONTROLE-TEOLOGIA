@@ -11,8 +11,7 @@ export const Player = () => {
     >
       <AspectRatio maxW="container.lg" w="full" ratio={16 / 9}>
         <Image
-          src="https://bit.ly/naruto-sage"
-          alt="naruto"
+          src="https://italo.com.br/wp-content/uploads/2018/12/curso-teologia.png"
           objectFit="cover"
         />
       </AspectRatio>

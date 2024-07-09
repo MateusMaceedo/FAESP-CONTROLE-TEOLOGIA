@@ -8,7 +8,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { AiOutlineLinkedin } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { navigateTo } from "../../utils/navigateTo";
 
 export const VideoInformation = () => {
@@ -17,39 +17,44 @@ export const VideoInformation = () => {
       <HStack w="full" maxW="container.lg" align="flex-start">
         <VStack w="full" align="flex-start" spacing="8">
           <Text fontWeight="bold" fontSize="xl">
-            Aula 01 - Criando o projeto e realizando o setup inicial
+            Aula 01 - Introdução à Teologia
           </Text>
           <Text lineHeight={1.5} color="gray.300">
-            Nessa aula vamos dar início ao projeto criando a estrutura base da
-            aplicação utilizando ReactJS, Vite e TailwindCSS. Vamos também
-            realizar o setup do nosso projeto no GraphCMS criando as entidades
-            da aplicação e integrando a API GraphQL gerada pela plataforma no
-            nosso front-end utilizando Apollo Client. Nessa aula vamos dar
-            início ao projeto criando a estrutura base da aplicação utilizando
-            ReactJS, Vite e TailwindCSS. Vamos também realizar o setup do nosso
-            projeto no GraphCMS criando as entidades da aplicação e integrando a
-            API GraphQL gerada pela plataforma no nosso front-end utilizando
-            Apollo Client.
+             Você fez a melhor escolha ao optar por crescer na graça e no conhecimento da Palavra de Deus. Este curso é uma oportunidade única, oferecido gratuitamente por tempo limitado, para que você possa explorar profundamente os ensinamentos que fundamentam a nossa fé. Aproveite este estudo para dar os primeiros passos em uma jornada de descoberta espiritual e aprendizado transformador. Ao completar as 15 aulas cuidadosamente preparadas, você terá adquirido um entendimento mais profundo e significativo da teologia, preparando-se não apenas para aplicar esses conhecimentos em sua vida pessoal, mas também para receber um Certificado de Conclusão que reconhece seu compromisso e dedicação neste caminho de crescimento espiritual.
           </Text>
           <HStack w="full" justify="space-between" spacing="8">
             <Avatar src="https://avatars.githubusercontent.com/u/47259718?v=4" />
             <VStack w="full" align="flex-start" spacing="0">
-              <Text>Rafael Fischer</Text>
+              <Text>Pb. Neiomar</Text>
               <Text fontSize="xs" color="gray.600">
-                Front-End Developer & UI/UX Designer
+                Mestre em Teologia Biblica
               </Text>
             </VStack>
             <IconButton
               variant="ghost"
-              aria-label="Linkedin"
+              aria-label="Email"
               fontSize={32}
               colorScheme="cyan"
-              icon={<AiOutlineLinkedin />}
+              icon={<AiOutlineMail />}
               onClick={() =>
                 navigateTo("https://www.linkedin.com/in/fischerafael/")
               }
             />
           </HStack>
+          <Button
+            borderRadius="0"
+            colorScheme="cyan"
+            variant="outline"
+            w="full"
+            p="2"
+            fontSize="sm"
+            mt="4"
+            onClick={() =>
+              navigateTo("https://seusite.com/meus-cursos")
+            }
+          >
+            MEUS CURSOS
+          </Button>
         </VStack>
         <VStack
           w="full"
@@ -63,26 +68,26 @@ export const VideoInformation = () => {
             borderRadius="0"
             colorScheme="cyan"
             w="full"
-            p="8"
+            p="4"
             onClick={() =>
               navigateTo("https://github.com/fischerafael/coursefy")
             }
           >
-            Respositório Github
+            Subsídios
           </Button>
           <Button
             borderRadius="0"
             colorScheme="cyan"
             variant="outline"
             w="full"
-            p="8"
+            p="4"
             onClick={() =>
               navigateTo(
                 "https://www.youtube.com/channel/UCz75xXTimMhZkbK__XOM8hQ"
               )
             }
           >
-            Canal no Youtube
+            Referências
           </Button>
         </VStack>
       </HStack>
