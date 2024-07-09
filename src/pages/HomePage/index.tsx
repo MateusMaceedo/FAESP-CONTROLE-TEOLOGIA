@@ -16,16 +16,14 @@ export const HomePage = () => {
         <VStack w="full" align="flex-start" spacing="8">
           <Logo />
 
-          <Text fontSize="2xl" fontWeight="bold" lineHeight={1.15}>
-            Construa uma aplicação completa, do zero, com{" "}
+          <Text fontSize="4xl" fontWeight="bold" lineHeight={1.15}>
+            MATRÍCULAS ABERTAS!{" "}
             <Text as="span" color="cyan.500">
-              React JS
+              Faça sua matrícula agora e começe a estudar Teologia!
             </Text>
           </Text>
-          <Text>
-            Em apenas 3 lives você vai dominar na prática uma das tecnologias
-            mais utilizadas e com alta demanda para acessar as melhores
-            oportunidades do mercado.
+          <Text fontSize="4xl" fontWeight="bold" lineHeight={1.15}>
+            Atenção, as vagas são limitadas!
           </Text>
         </VStack>
 
@@ -39,7 +37,7 @@ export const HomePage = () => {
           align="flex-start"
         >
           <Text fontWeight="bold" fontSize="lg">
-            Acesse gratuitamente
+            Acesse o seu perfil de aluno
           </Text>
           <Input
             border="1px"
@@ -66,7 +64,6 @@ export const HomePage = () => {
           </Button>
         </VStack>
       </HStack>
-      <Image w="full" maxW="container.lg" src="/hero-bg.svg" h="50vh" />
     </VStack>
   );
 };
