@@ -1,8 +1,19 @@
-import { Divider, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  IconButton,
+  Text,
+  useDisclosure,
+  VStack,
+} from "@chakra-ui/react";
 import { IClass } from "../../entities/IClass";
-import { CardClass } from "../CardClass";
-import { CardClassActive } from "../CardClassActive";
 import { CardClassContainer } from "../CardClassContainer";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const classes: IClass[] = [
   {
@@ -29,7 +40,6 @@ const classes: IClass[] = [
     title: "Aula 03 - Titulo aula ignite labs",
     slug: "aula03",
   },
-
   {
     id: 4,
     date: new Date(),
@@ -38,7 +48,6 @@ const classes: IClass[] = [
     title: "Aula 03 - Titulo aula ignite labs",
     slug: "aula03",
   },
-
   {
     id: 5,
     date: new Date(),
@@ -47,7 +56,6 @@ const classes: IClass[] = [
     title: "Aula 03 - Titulo aula ignite labs",
     slug: "aula03",
   },
-
   {
     id: 6,
     date: new Date(),
@@ -59,17 +67,64 @@ const classes: IClass[] = [
 ];
 
 export const SideBar = () => {
-  return (
-    <VStack w="full" h="full" p="8" align="flex-start" spacing="8">
-      <Text fontWeight="bold" fontSize="lg">
-        Cronograma de Aulas
-      </Text>
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-      <VStack w="full" spacing="8">
-        {classes?.map((classProps) => (
-          <CardClassContainer key={classProps.id} classProps={classProps} />
-        ))}
-      </VStack>
-    </VStack>
+  return (
+    <>
+      {/* Botão de menu para dispositivos móveis */}
+      <Box
+        position="fixed"
+        top="0"
+        left="0"
+        p="4"
+        display={{ base: "block", md: "none" }}
+        zIndex="overlay"
+      >
+        <IconButton
+          icon={<HamburgerIcon />}
+          onClick={onOpen}
+          aria-label="Open Menu"
+          bg="gray.900" // Cor de fundo do botão
+          color="white" // Cor do ícone do botão
+          _hover={{ bg: "gray.700" }} // Cor de fundo ao passar o mouse
+        />
+      </Box>
+
+      {/* Div principal que ajusta a saída da tela quando o menu é aberto */}
+      <Box
+        ml={{ base: isOpen ? "0" : "-100vw" }}
+        transition="ml 0.3s ease"
+      >
+        {/* Drawer para dispositivos móveis */}
+        <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent bg="gray.900" color="white">
+            <DrawerCloseButton />
+            <DrawerHeader>Cronograma de Aulas</DrawerHeader>
+            <DrawerBody>
+              <VStack w="full" spacing="8">
+                {classes?.map((classProps) => (
+                  <CardClassContainer key={classProps.id} classProps={classProps} />
+                ))}
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+
+        {/* Visualização normal em dispositivos maiores */}
+        <Box display={{ base: "none", md: "block" }} w="full" h="full" p="8">
+          <VStack align="flex-start" spacing="8" bg="gray.900" color="white">
+            <Text fontWeight="bold" fontSize="lg">
+              Cronograma de Aulas
+            </Text>
+            <VStack w="full" spacing="8">
+              {classes?.map((classProps) => (
+                <CardClassContainer key={classProps.id} classProps={classProps} />
+              ))}
+            </VStack>
+          </VStack>
+        </Box>
+      </Box>
+    </>
   );
 };

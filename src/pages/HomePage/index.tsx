@@ -1,12 +1,14 @@
-import { Button, HStack, Image, Input, Text, VStack } from "@chakra-ui/react";
+import { Button, HStack, Image, Input, Text, VStack, useBreakpointValue } from "@chakra-ui/react";
 import { Logo } from "../../components/Logo";
 import { navigateTo } from "../../utils/navigateTo";
 
 export const HomePage = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <VStack
       w="full"
-      bgGradient="linear(to-b, gray.900, gray.700)"
+      bgGradient="linear(to-b, gray.900, gray.900)"
       color="gray.50"
       minH="100vh"
       spacing="0"
@@ -28,8 +30,8 @@ export const HomePage = () => {
         </VStack>
 
         <VStack
-          w="full"
-          maxW="450px"
+          w={isMobile ? "full" : "450px"} // Ajuste para largura total em dispositivos móveis
+          maxW={isMobile ? "full" : "450px"} // Ajuste para largura máxima em dispositivos não móveis
           bg="gray.900"
           p="12"
           style={{ outline: "1px solid #2D3748" }}
