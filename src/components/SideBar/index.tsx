@@ -91,7 +91,7 @@ export const SideBar = () => {
       </Box>
 
       {/* Div principal que ajusta a saída da tela quando o menu é aberto */}
-      <Box>
+      <Box minH="100vh" px={{ base: "4", md: "0" }}>
         {/* Drawer para dispositivos móveis */}
         <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
           <DrawerOverlay />
@@ -99,7 +99,7 @@ export const SideBar = () => {
             <DrawerCloseButton color="white" />
             <DrawerHeader>Cronograma de Aulas</DrawerHeader>
             <DrawerBody>
-              <VStack w="full" spacing="8">
+              <VStack w="full" spacing="4" align="flex-start">
                 {classes?.map((classProps) => (
                   <CardClassContainer key={classProps.id} classProps={classProps} />
                 ))}
@@ -114,7 +114,7 @@ export const SideBar = () => {
             <Text fontWeight="bold" fontSize="lg">
               Cronograma de Aulas
             </Text>
-            <VStack w="full" spacing="8">
+            <VStack w="full" spacing="4" align="flex-start">
               {classes?.map((classProps) => (
                 <CardClassContainer key={classProps.id} classProps={classProps} />
               ))}
