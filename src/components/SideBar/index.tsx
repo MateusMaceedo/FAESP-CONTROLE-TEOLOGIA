@@ -91,15 +91,12 @@ export const SideBar = () => {
       </Box>
 
       {/* Div principal que ajusta a saída da tela quando o menu é aberto */}
-      <Box
-        ml={{ base: isOpen ? "0" : "-100vw" }}
-        transition="ml 0.3s ease"
-      >
+      <Box>
         {/* Drawer para dispositivos móveis */}
         <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent bg="gray.900" color="white">
-            <DrawerCloseButton />
+            <DrawerCloseButton color="white" />
             <DrawerHeader>Cronograma de Aulas</DrawerHeader>
             <DrawerBody>
               <VStack w="full" spacing="8">
@@ -112,8 +109,8 @@ export const SideBar = () => {
         </Drawer>
 
         {/* Visualização normal em dispositivos maiores */}
-        <Box display={{ base: "none", md: "block" }} w="full" h="full" p="8">
-          <VStack align="flex-start" spacing="8" bg="gray.900" color="white">
+        <Box display={{ base: "none", md: "block" }} w="full" p="8" bg="gray.900" color="white">
+          <VStack align="flex-start" spacing="8">
             <Text fontWeight="bold" fontSize="lg">
               Cronograma de Aulas
             </Text>
