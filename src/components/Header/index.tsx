@@ -10,7 +10,7 @@ export const Header = () => {
     <HStack w="full" height="full" px="8" justify="space-between" bg="gray.800">
       <Logo />
       <Button
-        onClick={() => navigateTo("http://localhost:3001/")}
+        onClick={() => navigateTo("https://faesp-controle-teologia.vercel.app/")}
         borderRadius="0"
         colorScheme="cyan"
       >
